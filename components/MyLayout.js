@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from './Header.js';
 import Meta from './seo-meta.js';
 
 const layoutStyle = {
