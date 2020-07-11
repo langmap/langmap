@@ -2,7 +2,7 @@ import Header from './Header.js';
 import Meta from './seo-meta.js';
 import { initGA, logPageView } from './analytics';
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
    componentDidMount () {
     if (!window.GA_INITIALIZED) {
       initGA();
@@ -24,7 +24,5 @@ export default class Layout extends React.Component {
     )
   }
 }
-
-
 
 export default Layout;
