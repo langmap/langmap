@@ -3,6 +3,9 @@ import Meta from './seo-meta.js';
 import { initGA, logPageView } from './analytics';
 
 class Layout extends React.Component {
+  constructor (props) {
+    super(props);
+   }
    componentDidMount () {
     if (!window.GA_INITIALIZED) {
       initGA();
@@ -19,7 +22,7 @@ class Layout extends React.Component {
     return (
        <div style={layoutStyle}>
 	    <Header />
-	    {props.children}
+	    {this.props.children}
 	  </div>
     )
   }
