@@ -2,6 +2,21 @@ import Head from 'next/head';
 
 const Meta = (props) => (
 	<Head>
+		<script
+	    async
+	    src="https://www.googletagmanager.com/gtag/js?id=UA-172398767-1"
+	  />
+
+	  <script
+	    dangerouslySetInnerHTML={{
+	      __html: `
+	            window.dataLayer = window.dataLayer || [];
+	            function gtag(){dataLayer.push(arguments);}
+	            gtag('js', new Date());
+	            gtag('config', 'UA-172398767-1');
+	        `,
+	    }}
+	  />
 		<title>LangMap</title>
 		<meta name="description" content={props.description} />
 		<meta property="og:type" content="website" />
