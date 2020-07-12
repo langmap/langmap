@@ -5,7 +5,7 @@ const Header = () => (
     <Navbar.Brand href="/">
     <img
         alt=""
-        src="./small-logo.png"
+        src="./public/small-logo.png"
         height="70"
         className="d-inline-block align-top"
       />
