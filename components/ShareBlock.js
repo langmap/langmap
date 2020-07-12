@@ -21,7 +21,7 @@ class ShareBlock extends React.Component {
   }
 
   copyToClipboard() {
-    const url = 'http://langmap.me/l/' + convert(this.props.languages);
+    const url = 'https://langmap.me/l/' + convert(this.props.languages);
     const textField = document.createElement('textarea');
     textField.innerText = url;
     document.body.appendChild(textField);
@@ -52,10 +52,10 @@ class ShareBlock extends React.Component {
   }
 
   render(){ 
-    var url = 'http://langmap.me/l/' + convert(this.props.languages);
+    var url = 'https://langmap.me/l/' + convert(this.props.languages);
     var description = 'How many people speak ' + this.formatList(this.props.languages) + '? Find out with LangMap!';
     if(this.props.languages.length == 0){
-        url = 'http://langmap.me/';
+        url = 'https://langmap.me/';
         description = 'Explore the world\'s languages with shareable and saveable maps!'; 
     }
     return (

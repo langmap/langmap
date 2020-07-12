@@ -32,7 +32,7 @@ class ShareBlock extends React.Component {
 
   render(){ 
   	const hash_tags = ['langmap'].concat(this.props.languages);
-  	const url = 'http://langmap.me/l/' + convert(this.props.languages);
+  	const url = 'https://langmap.me/l/' + convert(this.props.languages);
   	const title = `I can speak with ${this.props.number} people using ${this.formatList(this.props.languages)}! How many people can you speak with? Make your own map at: `;
   	const reddit_title = `I can speak with ${this.props.number} people using ${this.formatList(this.props.languages)}!`;
   	const tumblr_title = 'Check out this language map!';
