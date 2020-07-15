@@ -8,7 +8,7 @@ import { convert, deconvert } from './urlConverter.js';
 
 import Router from 'next/router';
 
-const api_url = 'http://langmap-env.eba-ypd92j3q.us-east-2.elasticbeanstalk.com/';
+const api_url = 'https://langmap-api.herokuapp.com/';
 
 class LanguageInput extends React.Component {
 
