@@ -35,10 +35,10 @@ class ColorBar extends React.Component {
 
     const ColorSquare = ({ color, text }) => {
       return (
-      <Col style={{'padding-left': '0', 'padding-right': '0', 'margin' : '0', 'align-items': 'center'}}>
-        <Row style={{'padding-left': '0', 'padding-right': '0', 'margin' : '0', 'align-items': 'center'}}>
-        <Col style={{'padding-left': '0', 'padding-right': '0', 'margin' : '0', 'max-width': '30px'}}> <div style={{'width': '25px', 'height':'16px', 'border': '1px solid #000', 'background-color': color }} />  </Col>
-        <Col style={{'padding-left': '0', 'padding-right': '0', 'margin' : '0'}}> {text} </Col>
+      <Col style={{'paddingLeft': '0', 'paddingRight': '0', 'margin' : '0', 'alignItems': 'center'}}>
+        <Row style={{'paddingLeft': '0', 'paddingRight': '0', 'margin' : '0', 'alignItems': 'center'}}>
+        <Col style={{'paddingLeft': '0', 'paddingRight': '0', 'margin' : '0', 'maxWidth': '30px'}}> <div style={{'width': '25px', 'height':'16px', 'border': '1px solid #000', 'backgroundColor': color }} />  </Col>
+        <Col style={{'paddingLeft': '0', 'paddingRight': '0', 'margin' : '0'}}> {text} </Col>
         </Row>
       </Col>
       );
@@ -51,8 +51,8 @@ class ColorBar extends React.Component {
     }
     squares.push(<ColorSquare key={'max'} color={'#006b09'} text={this.formatValue(max) + "+"} />);
      return ( 
-        <Container style={{ 'align-items': 'center'}} fluid> 
-          <Row style={{'padding-left': '0', 'padding-right': '0', 'margin' : '0'}}>
+        <Container style={{ 'alignItems': 'center'}} fluid> 
+          <Row style={{'paddingLeft': '0', 'paddingRight': '0', 'margin' : '0'}}>
             { squares } 
           </Row>
         </Container>
