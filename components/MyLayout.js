@@ -19,10 +19,27 @@ class Layout extends React.Component {
 	  padding: 10,
 	  border: '1px solid #DDD'
 	};
+      const script = {__html: `<!-- Default Statcounter code for Langmap.me
+https://langmap.me -->
+<script type="text/javascript">
+var sc_project=12361869; 
+var sc_invisible=1; 
+var sc_security="2c7a9961"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12361869/0/2c7a9961/1/"
+alt="Web Analytics"></a></div></noscript>
+<!-- End of Statcounter Code -->`};
     return (
-       <div style={layoutStyle}>
+      <div style={layoutStyle}>
 	    <Header />
 	    {this.props.children}
+      <div dangerouslySetInnerHTML={script} />
 	  </div>
     )
   }
