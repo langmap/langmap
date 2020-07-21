@@ -39,7 +39,7 @@ const initials =
 	'da': 'danish', 
 	'du': 'dutch', 
 	'es': 'estonian', 
-	'fa': 'farsi', 
+	'pe': 'persian', 
 	'fi': 'finnish', 
 	'fr': 'french', 
 	'ge' : 'georgian',
@@ -96,7 +96,8 @@ const initials =
 	'mc' : 'macedonian',
 	'sv' : 'slovak',
 	'sa' : 'swahili',
-	'gm' : 'german'
+	'gm' : 'german',
+	'po' : 'polish'
 }
 
 export function convert(tags){

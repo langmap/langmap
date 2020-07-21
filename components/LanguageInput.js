@@ -49,6 +49,7 @@ class LanguageInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.promiseOptions = this.promiseOptions.bind(this);
     this.formatValue = this.formatValue.bind(this);
+    this.localizeName = this.localizeName.bind(this);
   }
 
   async getLangData(language) {
@@ -91,11 +92,102 @@ class LanguageInput extends React.Component {
 
   async promiseOptions(inputValue) {
     const response = await axios.get(api_url + 'languages');
+    console.log(response);
     let options = [];
+    console.log(this.localizeName(response.data[0][0]));
     for(var i = 0; i < response.data.length; i++) {
-      options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) });
+      console.log(i);
+      var name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
+      console.log(name);
+      options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
     }
     return options;
+  }
+
+  localizeName(name){
+    const names = {
+        'afrikaans': 'afrikaans', 
+        'albanian': 'Shqipëri', 
+        'amharic': 'አማርኛ', 
+        'armenian': 'հայերեն', 
+        'belarusian' : 'беларуская мова',
+        'azerbaijani': 'Azərbaycan dili', 
+        'bosnian': 'bosanski', 
+        'cantonese': '廣東話', 
+        'croatian': 'Hrvatski', 
+        'czech': 'Čeština', 
+        'danish': 'Dansk', 
+        'dutch': 'Nederlands', 
+        'estonian': 'Eesti keel', 
+        'persian': 'فارسی', 
+        'finnish': 'Suomen kieli', 
+        'french': 'Français', 
+        'georgian' : 'ქართული',
+        'greek': 'Ελληνικά', 
+        'gujarati': 'ગુજરાતી', 
+        'hausa': 'Harshen Hausa', 
+        'hebrew': 'עברית', 
+        'hindi': 'हिंदी', 
+        'hungarian': 'Magyar nyelv', 
+        'icelandic': 'Íslenska', 
+        'igbo': 'Asụsụ Igbo', 
+        'indonesian': 'Bahasa Indonesia', 
+        'italian': 'Italiano', 
+        'javanese': 'ꦧꦱꦗꦮ', 
+        'kazahk': 'Қазақша', 
+        'khmer': 'ភាសាខ្មែរ', 
+        'korean': '한국어', 
+        'latvian': 'Latviešu valoda', 
+        'lithuanian': 'Lietuvių kalba', 
+        'marathi': 'मराठी', 
+        'hokkien': '閩南語', 
+        'mongolian': 'монгол хэл', 
+        'nepali': 'नेपाली', 
+        'norwegian': 'Norsk', 
+        'odia': 'ଓଡ଼ିଆ', 
+        'punjabi': 'ਪੰਜਾਬੀ', 
+        'romanian': 'Limba română', 
+        'serbian': 'српски', 
+        'spanish' : 'Español',
+        'shona': 'chiShona', 
+        'slovene': 'Slovenščina', 
+        'somali': 'Af Soomaali', 
+        'swedish': 'Svenska', 
+        'tamil': 'தமிழ்', 
+        'telugu': 'తెలుగు', 
+        'thai': 'ภาษาไทย', 
+        'tibetan': 'བོད་སྐད་', 
+        'turkish': 'Türkçe', 
+        'ukrainian': 'українська мова', 
+        'urdu': 'اُردُو', 
+        'uzbek': 'O‘zbekcha', 
+        'vietnamese': 'Tiếng Việt', 
+        'wu': '吳語', 
+        'xhosa': 'isiXhosa', 
+        'yiddish': 'ייִדיש', 
+        'yoruba': 'Èdè Yorùbá', 
+        'zulu': 'isiZulu',
+        'hakka' : '客家話',
+        'kannada' : 'ಕನ್ನಡ',
+        'lao' : 'ພາສາລາວ',
+        'lingala' : 'Lingála',
+        'malay' : 'Bahasa Melayu',
+        'malayam' : 'മലയാളം',
+        'macedonian' : 'македонски',
+        'slovak' : 'Slovenčina',
+        'swahili' : 'Kiswahili',
+        'german' : 'Deutsch',
+        'arabic' : 'اَلْعَرَبِيَّةُ‎',
+        'bengali' : 'বাংলা',
+        'english' : 'English',
+        'mandarin' : '中文',
+        'japanese' : '日本語',
+        'tagalog' : 'Tagalog',
+        'russian' : 'Русский',
+        'portuguese' : 'Português',
+        'polish' : 'Język polski'
+    }
+     return names[name];
   }
 
   formatValue(value) {
