@@ -106,13 +106,13 @@ class LanguageInput extends React.Component {
 
   localizeName(name){
     const names = {
-        'afrikaans': 'afrikaans', 
+        'afrikaans': 'Afrikaans', 
         'albanian': 'Shqipëri', 
         'amharic': 'አማርኛ', 
         'armenian': 'հայերեն', 
         'belarusian' : 'беларуская мова',
         'azerbaijani': 'Azərbaycan dili', 
-        'bosnian': 'bosanski', 
+        'bosnian': 'Bosanski', 
         'cantonese': '廣東話', 
         'croatian': 'Hrvatski', 
         'czech': 'Čeština', 
