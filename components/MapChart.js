@@ -13,6 +13,7 @@ import ShareBlock from './ShareBlock.js';
 import {Button, ButtonGroup, Container, Row, Col} from 'react-bootstrap';
 import ColorBar from './colorBar';
 import WorldMap from './map.json';
+import {isMobile} from 'react-device-detect';
 
 class MapChart extends React.Component {
 
@@ -164,7 +165,7 @@ render () {
           </ZoomableGroup>
           </ComposableMap>
           </div>
-          { Object.keys(this.props.data).length  > 0 && <ColorBar data={data} />}
+          { Object.keys(this.props.data).length  > 0 && !isMobile && <ColorBar data={data} />}
         </div>
         <ShareBlock number={this.props.number} languages={Object.keys(this.props.data)}/>
       </div>
