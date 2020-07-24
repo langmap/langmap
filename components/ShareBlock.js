@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver';
 import {saveSvgAsPng} from 'save-svg-as-png';
 import {AiFillSave} from 'react-icons/ai';
 import domtoimage from 'dom-to-image';
+import {isMobile} from 'react-device-detect';
 
 class ShareBlock extends React.Component {
 
@@ -62,9 +63,11 @@ class ShareBlock extends React.Component {
       <div style={{'marginTop': '10px', 'marginBottom': '2px'}}>
         <Container style={{ 'alignItems': 'center'}} fluid='md'>
           <Row>
+          { !isMobile && 
           <Col xs={3} style={{ 'alignItems': 'center'}}>       
               <Button onClick={this.handleSave}><AiFillSave size='1.5rem'/> Download Map</Button>
           </Col>
+        } {!isMobile && 
             <Col xs={5} style={{ 'alignItems': 'center'}}>
               <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
@@ -76,6 +79,7 @@ class ShareBlock extends React.Component {
               <ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
             </Col>
+          }
             <Col xs={4} style={{ 'alignItems': 'center'}}>
             <InputGroup>
               <FormControl value={url} disabled />
