@@ -67,8 +67,24 @@ class ShareBlock extends React.Component {
           <Col xs={3} style={{ 'alignItems': 'center'}}>       
               <Button onClick={this.handleSave}><AiFillSave size='1.5rem'/> Download Map</Button>
           </Col>
-        } {!isMobile && 
+        } 
+
+        {!isMobile && 
             <Col xs={5} style={{ 'alignItems': 'center'}}>
+              <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='vk' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
+            </Col>
+          }
+
+        {isMobile && 
+            <Col xs={3} style={{ 'alignItems': 'center'}}>
               <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/>
@@ -92,17 +108,6 @@ class ShareBlock extends React.Component {
           </Col>
         }
 
-         {isMobile && 
-            <Col xs={4} style={{ 'alignItems': 'center'}} fluid='true'>
-            <InputGroup>
-              <FormControl value={url} disabled />
-              <InputGroup.Append>
-                <Button onClick={this.copyToClipboard}>Copy URL</Button>
-              </InputGroup.Append>
-            </InputGroup>
-          </Col>
-
-         }
           </Row>
         
         </Container>
