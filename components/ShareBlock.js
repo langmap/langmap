@@ -60,7 +60,7 @@ class ShareBlock extends React.Component {
     }
     return (
       <div style={{'marginTop': '10px', 'marginBottom': '2px'}}>
-        <Container style={{ 'alignItems': 'center'}}>
+        <Container style={{ 'alignItems': 'center'}} fluid='md'>
           <Row>
           <Col xs={3} style={{ 'alignItems': 'center'}}>       
               <Button onClick={this.handleSave}><AiFillSave size='1.5rem'/> Download Map</Button>
