@@ -84,7 +84,7 @@ class ShareBlock extends React.Component {
           }
 
         {isMobile && 
-            <Col xs={3} style={{ 'alignItems': 'center'}}>
+            <Col xs='auto' style={{ 'alignItems': 'center'}}>
               <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/>
