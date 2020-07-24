@@ -10,7 +10,7 @@ import styles from './Header.module.css';
 */
 
 const Header = () => (
-  <Navbar bg="light" variant="light" fluid="md">
+  <Navbar bg="light" variant="light" expand="md">
     <Navbar.Brand href="/">
     <img
         alt=""
