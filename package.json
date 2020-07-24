@@ -35,6 +35,7 @@
     "react-component-export-image": "^0.1.6",
     "react-copy-to-clipboard": "^5.0.2",
     "react-custom-share": "^0.4.8",
+    "react-device-detect": "^1.13.1",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^3.0.2",
     "react-dom": "^16.12.0",
