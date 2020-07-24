@@ -80,6 +80,8 @@ class ShareBlock extends React.Component {
               <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
             </Col>
           }
+
+          {!isMobile && 
             <Col xs={4} style={{ 'alignItems': 'center'}}>
             <InputGroup>
               <FormControl value={url} disabled />
@@ -88,7 +90,21 @@ class ShareBlock extends React.Component {
               </InputGroup.Append>
             </InputGroup>
           </Col>
+        }
+
+         {isMobile && 
+            <Col xs={4} style={{ 'alignItems': 'center'}} fluid='true'>
+            <InputGroup>
+              <FormControl value={url} disabled />
+              <InputGroup.Append>
+                <Button onClick={this.copyToClipboard}>Copy URL</Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Col>
+
+         }
           </Row>
+        
         </Container>
         <Meta description={description} url={url} image={this.props.uri}/>
         </div>
