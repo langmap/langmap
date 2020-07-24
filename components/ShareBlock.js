@@ -98,7 +98,7 @@ class ShareBlock extends React.Component {
           }
 
           {!isMobile && 
-            <Col xs={4} style={{ 'alignItems': 'center'}}>
+            <Col xs='auto' style={{ 'alignItems': 'center'}}>
             <InputGroup>
               <FormControl value={url} disabled />
               <InputGroup.Append>
