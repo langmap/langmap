@@ -84,21 +84,19 @@ class ShareBlock extends React.Component {
           }
 
         {isMobile && 
-            <Col xs='auto' style={{ 'alignItems': 'center'}}>
-              <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='vk' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
-            </Col>
+              <Col xs='auto' sm='auto'> <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/> </Col>
+              <Col xs='auto' sm='auto'> <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='vk' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/></Col>
+              <Col xs='auto' sm='auto'><ShareButton network='xing' number={this.props.number} languages={this.props.languages}/></Col>
           }
 
           {!isMobile && 
-            <Col xs='auto' style={{ 'alignItems': 'center'}}>
+            <Col xs={4} style={{ 'alignItems': 'center'}}>
             <InputGroup>
               <FormControl value={url} disabled />
               <InputGroup.Append>
