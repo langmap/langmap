@@ -83,11 +83,9 @@ class ShareBlock extends React.Component {
           }
 
         {isMobile && 
-            <div>
-              <Col xs="auto"> <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/> </Col>
-              <Col xs="auto"><ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/> </Col>
-              <Col xs="auto"><ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/> </Col>
-              </div>
+              <Col xs="auto"> <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/> 
+              <ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/> </Col>
           }
 
           {!isMobile && 
