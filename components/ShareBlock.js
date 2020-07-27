@@ -55,7 +55,7 @@ class ShareBlock extends React.Component {
   render(){ 
     var url = 'https://langmap.me/l/' + convert(this.props.languages);
     var description = 'How many people speak ' + this.formatList(this.props.languages) + '? Find out with LangMap!';
-    if(this.props.languages.length == 0){
+    if(this.props.languages.length === 0){
         url = 'https://langmap.me/';
         description = 'Explore the world\'s languages with shareable and saveable maps!'; 
     }
@@ -78,23 +78,21 @@ class ShareBlock extends React.Component {
               <ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='vk' number={this.props.number} languages={this.props.languages}/>
-              <ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/>
               <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
             </Col>
           }
 
         {isMobile && 
-          <div>
-              <Col xs='auto' sm='auto'> <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/> </Col>
-              <Col xs='auto' sm='auto'> <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='vk' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='linkedin' number={this.props.number} languages={this.props.languages}/></Col>
-              <Col xs='auto' sm='auto'><ShareButton network='xing' number={this.props.number} languages={this.props.languages}/></Col>
-          </div>
+            <Col xs={3} style={{ 'alignItems': 'center'}} fluid='true'>
+              <ShareButton network='twitter' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='weibo' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='tumblr' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='facebook' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='reddit' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='telegram' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='vk' number={this.props.number} languages={this.props.languages}/>
+              <ShareButton network='xing' number={this.props.number} languages={this.props.languages}/>
+            </Col>
           }
 
           {!isMobile && 
