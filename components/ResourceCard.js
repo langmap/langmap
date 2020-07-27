@@ -2,7 +2,7 @@ import { Card, Button } from 'react-bootstrap';
 
 const ResourceCard = (props) => (
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={props.imgurl} />
+  <a href={props.url}> <Card.Img variant="top" src={props.imgurl} style={{ 'width': '100% !important', 'height': '27vw !important', 'objectFit': 'cover !important'}}/> </a>
   <Card.Body>
     <Card.Title>{props.title}</Card.Title>
     <Card.Text>
