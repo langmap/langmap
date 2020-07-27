@@ -48,9 +48,7 @@ class ShareBlock extends React.Component {
     .then(function (blob) {
         window.saveAs(blob, 'my_langmap.png');
     });
-    
-    //saveSvgAsPng(document.getElementById("the-map"), "my_langmap.png", {encoderOptions: 1});
-  }
+      }
 
   render(){ 
     var url = 'https://langmap.me/l/' + convert(this.props.languages);
