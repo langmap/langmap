@@ -30,7 +30,7 @@ export default function About() {
 	      </ul>
 	    </p>
       <center> <h2>Where did the idea for LangMap come from?</h2> </center>
-      <p style={{paddingLeft: '10%  !important', paddingRight: '10%  !important'}}>
+      <p style={{paddingLeft: '10%  !important', paddingRight: '10% !important'}}>
 	      The inspiration for LangMap came from <a href="https://amzn.to/30tVJdv"><i>Lingo</i></a> and <a href="https://amzn.to/32CaKwp"><i>Babel</i></a> by Gaston Dorren: two excellent books about 
 	      European languages and the twenty most spoken languages in the world respectively. They are two enjoyable and educational reads, 
 	      and after I finished the books I wanted to explore the international breakdown of language populations in a more visual manner.
