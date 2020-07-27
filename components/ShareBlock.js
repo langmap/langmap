@@ -82,12 +82,7 @@ class ShareBlock extends React.Component {
 
         {isMobile && 
           <Col fluid='auto'>
-            <InputGroup>
-              <FormControl value={url} disabled />
-              <InputGroup.Append>
-                <Button onClick={this.copyToClipboard}>Copy URL</Button>
-              </InputGroup.Append>
-            </InputGroup>
+            On mobile? Check out our site on a desktop for better functionality and more options!
           </Col>
           }
 
