@@ -23,7 +23,7 @@ export default function About() {
 	  <h2>What's next for LangMap?</h2>
 	    <p>
 	      <ul>
-	      	<li>Country-specific maps for drilling down to states, counties or regions</li>
+	      	<li>Country-specific maps for drilling down to regions, states or counties</li>
 	      	<li>Localisation for the website so that people can use it in their language(s)</li>
 	      	<li>More languages and expanded language data coverage</li>
 	      </ul>
@@ -38,7 +38,7 @@ export default function About() {
       <h2>Who is behind LangMap?</h2>
 	    <p>
 	      My name is Charles Rule. I am a software developer who loves linguistics, geography and data visualization. 
-	      If you have suggestions for LangMap, please email langmap@gmail.com or contact me on <a href="https://linkedin.com/in/charles-rule">LinkedIn</a>.
+	      If you have suggestions for LangMap, please email langmapme@gmail.com or contact me on <a href="https://linkedin.com/in/charles-rule">LinkedIn</a>.
 	    </p>
     </Layout>
   );
