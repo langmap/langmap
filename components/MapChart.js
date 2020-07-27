@@ -164,6 +164,7 @@ render () {
             )}
           </ZoomableGroup>
           </ComposableMap>
+          <h4 style={{postion: 'absolute', zIndez: '100', userSelect: 'none', opacity: '0.6', bottom: '0', marginRight: '5px', textAlign: 'right'}}>langmap.me</h4>
           </div>
           { Object.keys(this.props.data).length  > 0 && !isMobile && <ColorBar data={data} />}
         </div>
