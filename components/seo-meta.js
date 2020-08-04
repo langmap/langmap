@@ -11,7 +11,7 @@ const Meta = (props) => (
 		<meta property="og:site_name" content="LangMap" />
 		<meta property="og:url" content={props.url} />  
 		<meta name="twitter:card" content="summary" /> 
-		<meta name="twitter:title" content="Explore the world\'s languages" />
+		<meta name="twitter:title" content="Explore the world's languages" />
 		<meta name="twitter:description" content={props.description} />
 		<meta name="twitter:image" content="https://langmap.me/defaultmap.png" />   
 		<link rel="icon" type="image/x-icon" href="https://langmap.me/favicon.ico" />
