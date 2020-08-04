@@ -7,6 +7,7 @@ import AsyncSelect from 'react-select/async';
 import { convert, deconvert } from './urlConverter.js';
 
 import Router from 'next/router';
+import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 
 const api_url = 'https://langmap-api.herokuapp.com/';
 
@@ -41,7 +42,9 @@ class LanguageInput extends React.Component {
     this.state = {
       tags: tagObjects,
       langData: [],
-      value: 0
+      value: 0,
+      emailEntered: false,
+      email: ''
     };
 
     this.getLangData = this.getLangData.bind(this);
@@ -50,6 +53,7 @@ class LanguageInput extends React.Component {
     this.promiseOptions = this.promiseOptions.bind(this);
     this.formatValue = this.formatValue.bind(this);
     this.localizeName = this.localizeName.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
 
   async getLangData(language) {
@@ -92,13 +96,9 @@ class LanguageInput extends React.Component {
 
   async promiseOptions(inputValue) {
     const response = await axios.get(api_url + 'languages');
-    console.log(response);
     let options = [];
-    console.log(this.localizeName(response.data[0][0]));
     for(var i = 0; i < response.data.length; i++) {
-      console.log(i);
       var name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
-      console.log(name);
       options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
     }
     return options;
@@ -194,18 +194,54 @@ class LanguageInput extends React.Component {
     return "You can speak with " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " people!";
   }
 
+  async handleEmail() {
+    const response = await axios.get(api_url + 'new/' + this.state.email);
+    console.log(response);
+    this.setState({emailEntered: true});
+    return; 
+  }
+
   render () {
     return(
-      <div>
+      <div id="outer-input">
         <div style={{'marginTop' : '5px', 'marginBottom' : '5px'}}>
-        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
         { this.state.value > 0 && 
           <h1 align="center"> <AnimatedNumber value={this.state.value} formatValue={this.formatValue} duration="300"/> </h1>
         }
+        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
         </div>
-        <div>
-          <Map langData={this.state.langData} number={this.state.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}/>
-        </div>
+        {(this.state.emailEntered || this.state.value === 0) && 
+          <div>
+            <Map langData={this.state.langData} number={this.state.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}/>
+          </div>
+        }
+        {(!this.state.emailEntered && this.state.value !== 0) &&
+          <div>
+              <Modal
+              show={!this.state.emailEntered}
+            onHide={() => {this.setState({emailEntered: true})}}
+            backdrop="static"
+            keyboard={false}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Get Exclusive LangMap Updates</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Sign up for updates on LangMap, language learning information and more! 
+            </Modal.Body>
+            <InputGroup style={{width: '80%', marginRight: 'auto', marginLeft: 'auto', paddingBottom: '20px'}}>
+              <FormControl placeholder={'email@example.com'} type="email" onChange={(e) => {this.setState({email : e.target.value})}} />
+              <InputGroup.Append>
+                <Button variant="primary" onClick={() => {this.handleEmail()}}>Submit</Button> 
+              </InputGroup.Append>
+            </InputGroup>
+          </Modal>
+          <div style={{ msFilter: 'blur(5px)', filter: 'blur(5px)'}}>
+            <Map langData={this.state.langData} number={this.state.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}/>
+          </div>
+          </div>
+        }
       </div>
     )
   }

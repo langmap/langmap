@@ -137,7 +137,7 @@ render () {
                           onClick={() => {this.handleGeographyClick(geo)}}
                           onMouseEnter={() => {
                           const { NAME } = geo.properties;
-                          const POP = country ? data.find(element => element.id === geo.properties.ISO_A3).val : 0; 
+                          const POP = country ? data.find(element => element.id === geo.properties.ISO_A3).val : 'Few'; 
                           	this.props.setTooltipContent(`${NAME} — ${POP.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} Speakers`);
                           }}
                           onMouseLeave={() => {
@@ -164,7 +164,7 @@ render () {
             )}
           </ZoomableGroup>
           </ComposableMap>
-          <h4 style={{postion: 'absolute', zIndez: '100', userSelect: 'none', opacity: '0.6', bottom: '0', marginRight: '5px', textAlign: 'right'}}>langmap.me</h4>
+          <h2 style={{postion: 'absolute', zIndez: '100', userSelect: 'none', opacity: '0.6', bottom: '0', marginRight: '5px', textAlign: 'right'}}>langmap.me</h2>
           </div>
           { Object.keys(this.props.data).length  > 0 && !isMobile && <ColorBar data={data} />}
         </div>

@@ -42,7 +42,6 @@ class ShareBlock extends React.Component {
   		facebook: [`https://www.facebook.com/sharer.php?u=${url}`, <FaFacebook size='2.5em'/>],
   		reddit: [`https://reddit.com/submit?url=${url}&title=${reddit_title}`, <FaReddit size='2.5em'/>],
   		weibo: [`http://service.weibo.com/share/share.php?url=${url}&title=${title}`, <FaWeibo size='2.5em'/>],
-  		linkedin: [`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}`, <FaLinkedin size='2.5em'/>],
   		tumblr: [`http://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&title=${tumblr_title}&caption=${caption}&tags=${hash_tags}`, <FaTumblr size='2.5em'/>],
   	   vk: [`http://vk.com/share.php?url=${url}&title=${reddit_title}&comment=${caption}`, <FaVk size='2.5em'/>],
        xing: [`https://www.xing.com/spi/shares/new?url=${url}`, <FaXing size='2.5em'/>],

@@ -44,7 +44,7 @@ class ShareBlock extends React.Component {
 
   handleSave(){
     
-    domtoimage.toBlob(document.getElementById('map-outer'), {bgcolor: '#FFFFFF'})
+    domtoimage.toBlob(document.getElementById('outer-input'), {bgcolor: '#FFFFFF'})
     .then(function (blob) {
         window.saveAs(blob, 'my_langmap.png');
     });
