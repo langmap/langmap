@@ -9,6 +9,9 @@ import { convert, deconvert } from './urlConverter.js';
 import Router from 'next/router';
 import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 
+import { useCookies } from 'react-cookie';
+import { withCookies, Cookies } from 'react-cookie';
+
 const api_url = 'https://langmap-api.herokuapp.com/';
 
 class LanguageInput extends React.Component {
@@ -39,11 +42,13 @@ class LanguageInput extends React.Component {
       }
     }
 
+    const { cookies } = this.props;
+
     this.state = {
       tags: tagObjects,
       langData: [],
       value: 0,
-      emailEntered: false,
+      emailEntered: (cookies.email === 'true'),
       email: ''
     };
 
@@ -196,12 +201,14 @@ class LanguageInput extends React.Component {
 
   async handleEmail() {
     const response = await axios.get(api_url + 'new/' + this.state.email);
-    console.log(response);
     this.setState({emailEntered: true});
+    const { cookies } = this.props;
+    cookies.set('email', true, { path: '/', sameSite: 'none', secure: true });
     return; 
   }
 
   render () {
+    const { cookies } = this.props;
     return(
       <div id="outer-input">
         <div style={{'marginTop' : '5px', 'marginBottom' : '5px'}}>
@@ -247,4 +254,4 @@ class LanguageInput extends React.Component {
   }
 }
  
-export default LanguageInput; 
+export default withCookies(LanguageInput); 
