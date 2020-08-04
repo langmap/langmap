@@ -27,12 +27,14 @@
     "dom-to-image": "^2.6.0",
     "emotion": "^10.0.27",
     "file-saver": "^2.0.2",
+    "merge-images": "^2.0.0",
     "next": "^9.4.4",
     "object-encode": "^1.0.2",
     "react": "^16.12.0",
     "react-autocomplete-tags": "^1.0.13-alpha",
     "react-bootstrap": "^1.0.1",
     "react-component-export-image": "^0.1.6",
+    "react-cookie": "^4.0.3",
     "react-copy-to-clipboard": "^5.0.2",
     "react-custom-share": "^0.4.8",
     "react-device-detect": "^1.13.1",
@@ -52,6 +54,7 @@
     "save-svg-as-png": "^1.4.17",
     "simple-crypto-js": "^3.0.0",
     "smaz": "^1.0.0",
-    "topojson-client": "^3.1.0"
+    "topojson-client": "^3.1.0",
+    "watermarkjs": "^2.1.1"
   }
 }
