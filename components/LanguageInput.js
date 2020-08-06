@@ -12,7 +12,7 @@ import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { withCookies, Cookies } from 'react-cookie';
 
-const api_url = 'http://127.0.0.1:5000/';
+const api_url = 'https://langmap-api.herokuapp.com/';
 
 class LanguageInput extends React.Component {
 
