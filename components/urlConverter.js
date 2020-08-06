@@ -65,7 +65,7 @@ const initials =
 	'od': 'odia', 
 	'pu': 'punjabi', 
 	'ro': 'romanian', 
-	'se': 'serbo-croatian', 
+	'se': 'serbocroatian', 
 	'sp' : 'spanish',
 	'sh': 'shona', 
 	'sl': 'slovene', 

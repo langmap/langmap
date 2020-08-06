@@ -12,7 +12,7 @@ import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { withCookies, Cookies } from 'react-cookie';
 
-const api_url = 'https://langmap-api.herokuapp.com/';
+const api_url = 'http://127.0.0.1:5000/';
 
 class LanguageInput extends React.Component {
 
@@ -22,10 +22,19 @@ class LanguageInput extends React.Component {
     var tagObjects = [];
     if(this.props.code){
       var tagList = deconvert(this.props.code);
-      for(var i = 0; i < tagList.length; i++){
-        tagObjects.push({value : tagList[i].charAt(0).toUpperCase() + tagList[i].slice(1), label : tagList[i].charAt(0).toUpperCase() + tagList[i].slice(1)});
+      for(var i = 0; i < tagList.length; i++) {
+          var name = '';
+          if (tagList[i] === 'serbocroatian' || tagList[i] === 'serbo-croatian') {
+            name = 'Serbo-Croatian (Srpskohrvatski)';
+            tagObjects.push({value: tagList[i].charAt(0).toUpperCase() + tagList[i].slice(1), label: 'Serbo-Croatian (Srpskohrvatski)' });
+          }
+          else {
+            name = tagList[i].charAt(0).toUpperCase() + tagList[i].slice(1) + ' (' + this.localizeName(tagList[i]) + ')';
+            tagObjects.push({value: tagList[i].charAt(0).toUpperCase() + tagList[i].slice(1), label: name });
+          }
       }
-        if (tagObjects.length > 1) {
+    }
+      if (tagObjects.length > 1) {
         this.multipleLanguageQueries(tagObjects).then((langData) => {
           this.setState({ langData });
           let sum = 0;
@@ -40,7 +49,6 @@ class LanguageInput extends React.Component {
           this.setState({ value : langData[tagObjects[0].value].reduce((a, b) => a + (b['val'] || 0), 0)});
         });
       }
-    }
 
     const { cookies } = this.props;
 
@@ -103,8 +111,15 @@ class LanguageInput extends React.Component {
     const response = await axios.get(api_url + 'languages');
     let options = [];
     for(var i = 0; i < response.data.length; i++) {
-      var name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
-      options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
+      var name = '';
+      if (response.data[i][0] === 'serbocroatian' || response.data[i][0] === 'serbo-croatian') {
+        name = 'Serbo-Croatian (Srpskohrvatski)';
+        options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: 'Serbo-Croatian (Srpskohrvatski)' });
+      }
+      else {
+        name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
+        options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
+      }
     }
     return options;
   }
@@ -150,7 +165,7 @@ class LanguageInput extends React.Component {
         'odia': 'ଓଡ଼ିଆ', 
         'punjabi': 'ਪੰਜਾਬੀ', 
         'romanian': 'Limba română', 
-        'serbo-croatian': 'Srpskohrvatski', 
+        'serbocroatian': 'Srpskohrvatski', 
         'spanish' : 'Español',
         'shona': 'chiShona', 
         'slovene': 'Slovenščina', 
