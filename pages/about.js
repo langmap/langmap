@@ -10,7 +10,7 @@ export default function About() {
       <p style={{paddingLeft: '10%  !important', paddingRight: '10%  !important'}}>
 	      LangMap is a data visualization tool for language speakers, students and enthusiasts alike. 
 	      Its data comes primarily from <a href="https://www.ethnologue.com/"> Ethnologue </a> with minor supplementary sources. Consider <a href="https://ko-fi.com/langmap">donating to the site</a> to 
-	      keep the servers up and allow us to add new features. Follow us <a href="https://twitter.com/langmap_me"> on Twitter @langmap_me</a>!
+	      keep the servers up and allow us to add new features. Follow us on Twitter <a href="https://twitter.com/langmap_me">@langmap_me</a>!
       </p>
       <center> <h2> How many languages are available? </h2> </center>
       <p style={{paddingLeft: '10%  !important', paddingRight: '10%  !important'}}>
