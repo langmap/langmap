@@ -36,11 +36,14 @@ src="https://c.statcounter.com/12361869/0/2c7a9961/1/"
 alt="Web Analytics"></a></div></noscript>
 <!-- End of Statcounter Code -->`};
     return (
-      <div style={layoutStyle}>
-	    <Header />
-	    {this.props.children}
-      <div dangerouslySetInnerHTML={script} />
-	  </div>
+      <div>
+        <div style={layoutStyle}>
+    	    <Header />
+    	    {this.props.children}
+          <div dangerouslySetInnerHTML={script} />
+  	   </div>
+        <div style={{textAlign : 'center'}}> Got feedback? <a href="mailto:langmapme@gmail.com">  Email us </a> or reach out on Twitter <a href="https://twitter.com/langmap_me">@langmap_me</a>!</div>
+      </div>
     )
   }
 }
