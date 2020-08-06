@@ -42,7 +42,7 @@ alt="Web Analytics"></a></div></noscript>
     	    {this.props.children}
           <div dangerouslySetInnerHTML={script} />
   	   </div>
-        <div style={{textAlign : 'center'}}> Got feedback? <a href="mailto:langmapme@gmail.com">  Email us </a> or reach out on Twitter <a href="https://twitter.com/langmap_me">@langmap_me</a>!</div>
+        <div style={{textAlign : 'center'}}> Got feedback? Contact us through <a href="mailto:langmapme@gmail.com">email</a>, <a href="https://twitter.com/langmap_me">Twitter</a> or <a href="https://www.linkedin.com/in/charles-rule/">LinkedIn</a>!</div>
       </div>
     )
   }
