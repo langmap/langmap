@@ -43,7 +43,7 @@ class LanguageInput extends React.Component {
           }
           this.setState({ value : sum});
         });
-      } else if (tagObjects.length > 0) {
+      } else if (tagObjects.length === 1) {
        this.getLangData(tagObjects[0].value).then((langData) => {
           this.setState({ langData });
           this.setState({ value : langData[tagObjects[0].value].reduce((a, b) => a + (b['val'] || 0), 0)});
@@ -98,7 +98,7 @@ class LanguageInput extends React.Component {
         }
         this.setState({ value : sum});
       });
-    } else if (tags.length > 0) {
+    } else if (tags.length === 1) {
      this.getLangData(tags[0].value).then((langData) => {
         this.setState({ langData });
         this.setState({ value : langData[tags[0].value].reduce((a, b) => a + (b['val'] || 0), 0)});
@@ -203,7 +203,8 @@ class LanguageInput extends React.Component {
         'tagalog' : 'Tagalog',
         'russian' : 'Русский',
         'portuguese' : 'Português',
-        'polish' : 'Język polski'
+        'polish' : 'Język polski',
+        'haitian' : 'Kreyòl ayisyen'
     }
      return names[name];
   }

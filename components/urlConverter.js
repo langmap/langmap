@@ -13,6 +13,7 @@ const top10 = {
 
 const collisions = {
 	'hakka' : 'hk',
+	'haitian' : 'ht',
 	'kannada' : 'kn',
 	'lao' : 'lo',
 	'lingala' : 'lg',
