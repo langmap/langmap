@@ -259,7 +259,7 @@ class LanguageInput extends React.Component {
         { this.state.value > 0 && 
           <h1 align="center"> <AnimatedNumber value={this.state.value} formatValue={this.formatValue} duration="300"/> </h1>
         }
-        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable onSelectResetsInput={false} onBlurResetsInput={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
+        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable={false} onSelectResetsInput={false} onBlurResetsInput={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
         </div>
         {(this.state.emailEntered || this.state.value === 0) && 
           <div>
