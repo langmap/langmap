@@ -41,6 +41,7 @@ const initials =
 	'am': 'amharic', 
 	'ar': 'armenian', 
 	'be' : 'belarusian',
+	'bu' : 'bulgarian',
 	'az': 'azerbaijani', 
 	'ca': 'cantonese', 
 	'cz': 'czech', 

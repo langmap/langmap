@@ -133,6 +133,7 @@ class LanguageInput extends React.Component {
         'armenian': 'հայերեն', 
         'assyrian': 'ܣܘܪܝܬ',
         'belarusian' : 'беларуская мова',
+        'bulgarian': 'български език',
         'azerbaijani': 'Azərbaycan dili', 
         'cantonese': '廣東話', 
         'catalan' : 'Català',
