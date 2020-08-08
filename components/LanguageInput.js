@@ -67,6 +67,7 @@ class LanguageInput extends React.Component {
     this.formatValue = this.formatValue.bind(this);
     this.localizeName = this.localizeName.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
+    this.onChange  = this.onChange.bind(this);
   }
 
   async getLangData(language) {
@@ -130,9 +131,11 @@ class LanguageInput extends React.Component {
         'albanian': 'Shqipëri', 
         'amharic': 'አማርኛ', 
         'armenian': 'հայերեն', 
+        'assyrian': 'ܣܘܪܝܬ',
         'belarusian' : 'беларуская мова',
         'azerbaijani': 'Azərbaycan dili', 
         'cantonese': '廣東話', 
+        'catalan' : 'Català',
         'czech': 'Čeština', 
         'danish': 'Dansk', 
         'dutch': 'Nederlands', 
@@ -140,12 +143,14 @@ class LanguageInput extends React.Component {
         'persian': 'فارسی', 
         'finnish': 'Suomen kieli', 
         'french': 'Français', 
+        'fula': 'Fulfulde',
         'georgian' : 'ქართული',
         'greek': 'Ελληνικά', 
         'gujarati': 'ગુજરાતી', 
         'hausa': 'Harshen Hausa', 
         'hebrew': 'עברית', 
         'hindi': 'हिंदी', 
+        'hmong': 'lus Hmoob',
         'hungarian': 'Magyar nyelv', 
         'icelandic': 'Íslenska', 
         'igbo': 'Asụsụ Igbo', 
@@ -153,29 +158,37 @@ class LanguageInput extends React.Component {
         'italian': 'Italiano', 
         'javanese': 'ꦧꦱꦗꦮ', 
         'kazahk': 'Қазақша', 
+        'kurdish': 'Kurdî‎',
+        'kyrgyz': 'Кыргызча',
         'khmer': 'ភាសាខ្មែរ', 
         'korean': '한국어', 
         'latvian': 'Latviešu valoda', 
         'lithuanian': 'Lietuvių kalba', 
         'marathi': 'मराठी', 
+        'maltese' : 'Malti',
         'hokkien': '閩南語', 
         'mongolian': 'монгол хэл', 
         'nepali': 'नेपाली', 
         'norwegian': 'Norsk', 
         'odia': 'ଓଡ଼ିଆ', 
+        'oromo': 'Afaan Oromoo',
+        'pashto': 'پښتو',
         'punjabi': 'ਪੰਜਾਬੀ', 
         'romanian': 'Limba română', 
         'serbocroatian': 'Srpskohrvatski', 
+        'sinhala': 'සිංහල',
         'spanish' : 'Español',
         'shona': 'chiShona', 
         'slovene': 'Slovenščina', 
         'somali': 'Af Soomaali', 
         'swedish': 'Svenska', 
         'tamil': 'தமிழ்', 
+        'tatar': 'татар теле',
         'telugu': 'తెలుగు', 
         'thai': 'ภาษาไทย', 
         'tibetan': 'བོད་སྐད་', 
         'turkish': 'Türkçe', 
+        'turkmen': 'Türkmençe',
         'ukrainian': 'українська мова', 
         'urdu': 'اُردُو', 
         'uzbek': 'O‘zbekcha', 
@@ -221,6 +234,23 @@ class LanguageInput extends React.Component {
     return; 
   }
 
+  onChange(value){
+      var name = '';
+      var newVal = {};
+      if (value === 'serbocroatian' || value === 'serbo-croatian') {
+        name = 'Serbo-Croatian (Srpskohrvatski)';
+        newVal = {value: value.charAt(0).toUpperCase() + value.slice(1), label: 'Serbo-Croatian (Srpskohrvatski)' };
+      }
+      else {
+        name = value.charAt(0).toUpperCase() + value.slice(1) + ' (' + this.localizeName(value) + ')';
+        newVal = {value: value.charAt(0).toUpperCase() + value.slice(1), label: name };
+      }
+    let newTags = this.state.tags.push(newVal);
+    console.log(newVal);
+    console.log(newTags);
+    this.handleChange(newTags);
+  }
+
   render () {
     const { cookies } = this.props;
     return(
@@ -229,7 +259,7 @@ class LanguageInput extends React.Component {
         { this.state.value > 0 && 
           <h1 align="center"> <AnimatedNumber value={this.state.value} formatValue={this.formatValue} duration="300"/> </h1>
         }
-        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
+        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable onSelectResetsInput={false} onBlurResetsInput={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
         </div>
         {(this.state.emailEntered || this.state.value === 0) && 
           <div>
