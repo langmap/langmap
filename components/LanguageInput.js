@@ -12,6 +12,8 @@ import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { withCookies, Cookies } from 'react-cookie';
 
+import {LanguageOptions} from './languageOptions';
+
 const api_url = 'https://langmap-api.herokuapp.com/';
 
 class LanguageInput extends React.Component {
@@ -57,17 +59,20 @@ class LanguageInput extends React.Component {
       langData: [],
       value: 0,
       emailEntered: (cookies.email === 'true'),
-      email: ''
+      email: '',
+      inputValue: ''
     };
 
     this.getLangData = this.getLangData.bind(this);
     this.multipleLanguageQueries = this.multipleLanguageQueries.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.promiseOptions = this.promiseOptions.bind(this);
+    this.filterLanguages = this.filterLanguages.bind(this);
     this.formatValue = this.formatValue.bind(this);
     this.localizeName = this.localizeName.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.onChange  = this.onChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   async getLangData(language) {
@@ -108,22 +113,38 @@ class LanguageInput extends React.Component {
     history.pushState(null, null, '/l/' + convert(tags.map(a => a.value)));
   }
 
-  async promiseOptions(inputValue) {
-    const response = await axios.get(api_url + 'languages');
-    let options = [];
-    for(var i = 0; i < response.data.length; i++) {
-      var name = '';
-      if (response.data[i][0] === 'serbocroatian' || response.data[i][0] === 'serbo-croatian') {
-        name = 'Serbo-Croatian (Srpskohrvatski)';
-        options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: 'Serbo-Croatian (Srpskohrvatski)' });
-      }
-      else {
-        name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
-        options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
-      }
+  //async promiseOptions(inputValue) {
+    // const response = await axios.get(api_url + 'languages');
+    // let options = [];
+    // for(var i = 0; i < response.data.length; i++) {
+    //   var name = '';
+    //   if (response.data[i][0] === 'serbocroatian' || response.data[i][0] === 'serbo-croatian') {
+    //     name = 'Serbo-Croatian (Srpskohrvatski)';
+    //     options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: 'Serbo-Croatian (Srpskohrvatski)' });
+    //   }
+    //   else {
+    //     name = response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1) + ' (' + this.localizeName(response.data[i][0]) + ')';
+    //     options.push({value: response.data[i][0].charAt(0).toUpperCase() + response.data[i][0].slice(1), label: name });
+    //   }
+    // }
+  //   console.log(JSON.stringify(options));
+  //   return options;
+  // }
+
+    filterLanguages(inputValue) {
+      return LanguageOptions.filter(i =>
+        i.label.toLowerCase().startsWith(inputValue.toLowerCase())
+      );
+    };
+
+    promiseOptions(inputValue){
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(this.filterLanguages(inputValue));
+        }, 100);
+      });
     }
-    return options;
-  }
+
 
   localizeName(name){
     const names = {
@@ -247,9 +268,13 @@ class LanguageInput extends React.Component {
         newVal = {value: value.charAt(0).toUpperCase() + value.slice(1), label: name };
       }
     let newTags = this.state.tags.push(newVal);
-    console.log(newVal);
-    console.log(newTags);
     this.handleChange(newTags);
+  }
+
+  handleInputChange(newValue){
+    const inputValue = newValue.replace(/\W/g, '');
+    this.setState({ inputValue });
+    return inputValue;
   }
 
   render () {
@@ -260,7 +285,7 @@ class LanguageInput extends React.Component {
         { this.state.value > 0 && 
           <h1 align="center"> <AnimatedNumber value={this.state.value} formatValue={this.formatValue} duration="300"/> </h1>
         }
-        <AsyncSelect cacheOptions placeholder={'Select some languages...'} isSearchable={false} onSelectResetsInput={false} onBlurResetsInput={false} defaultOptions value={this.state.tags} loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
+        <AsyncSelect value={this.state.tags} onInputChange={this.handleInputChange} cacheOptions placeholder={'Select some languages...'} onSelectResetsInput={false} onBlurResetsInput={false} defaultOptions loadOptions={this.promiseOptions} onChange={this.handleChange} isMulti />
         </div>
         {(this.state.emailEntered || this.state.value === 0) && 
           <div>
