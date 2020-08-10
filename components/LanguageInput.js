@@ -149,6 +149,7 @@ class LanguageInput extends React.Component {
   localizeName(name){
     const names = {
         'afrikaans': 'Afrikaans', 
+        'akan': 'Akan',
         'albanian': 'Shqipëri', 
         'amharic': 'አማርኛ', 
         'armenian': 'հայերեն', 
@@ -166,6 +167,7 @@ class LanguageInput extends React.Component {
         'finnish': 'Suomen kieli', 
         'french': 'Français', 
         'fula': 'Fulfulde',
+        'galician': 'Galego',
         'georgian' : 'ქართული',
         'greek': 'Ελληνικά', 
         'gujarati': 'ગુજરાતી', 
@@ -196,6 +198,7 @@ class LanguageInput extends React.Component {
         'oromo': 'Afaan Oromoo',
         'pashto': 'پښتو',
         'punjabi': 'ਪੰਜਾਬੀ', 
+        'quechua': 'Kechua',
         'romanian': 'Limba română', 
         'serbocroatian': 'Srpskohrvatski', 
         'sinhala': 'සිංහල',
@@ -215,6 +218,8 @@ class LanguageInput extends React.Component {
         'urdu': 'اُردُو', 
         'uzbek': 'O‘zbekcha', 
         'vietnamese': 'Tiếng Việt', 
+        'welsh': 'Cymraeg',
+        'wolof': 'Wolof',
         'wu': '吳語', 
         'xhosa': 'isiXhosa', 
         'yiddish': 'ייִדיש', 
