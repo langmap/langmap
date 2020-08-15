@@ -26,7 +26,10 @@ const collisions = {
 	'catalan': 'ct',
 	'maltese': 'ml',
 	'tatar': 'tr',
-	'turkmen': 'tk'
+	'turkmen': 'tk',
+	'tigrigna': 'tg',
+	'guarani': 'gn',
+	'sindhi': 'sd'
 }
 
 const initials = 
@@ -119,7 +122,10 @@ const initials =
 	'sv' : 'slovak',
 	'sa' : 'swahili',
 	'gm' : 'german',
-	'po' : 'polish'
+	'po' : 'polish',
+	'tg' : 'tigrigna',
+	'gn' : 'guarani',
+	'sd': 'sindhi'
 }
 
 export function convert(tags){
