@@ -14,7 +14,7 @@ export default function About() {
       </p>
       <center> <h2> How many languages are available? </h2> </center>
       <p style={{paddingLeft: '10%  !important', paddingRight: '10%  !important'}}>
-	      There are currently ninety-seven languages that can be mapped on LangMap. 
+	      There are currently 100 languages that can be mapped on LangMap. 
 	      This list includes the top twenty most spoken languages as well as a mix of Indo-European, Semitic, Indo-Aryan, Uralic, Dravidian, Niger-Congo and Sino-Tibetan languages. 
 	      Certain language families have spotty coverage or are so localised that visualizing them on a global scale does not work: e.g., Navajo, which is only spoken in the United States, 
 	      or Quechua, whose dialects are so country-specific that it would be difficult to convey a correct map. 
